@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: galaxygrad
+Version: 0.0.1
+Summary: Diffusion model for galaxy generation
+Author: Matt Sampson
+Author-email: matt.sampson@princeton.edu
+Keywords: python,diffusion
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+
+Contains two jax functions ScoreNet32 and ScoreNet64. These are used to return the gradients of an arbitrary image with respect to a prior distribution of individual artifact free galaxy models. 

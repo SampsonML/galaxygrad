@@ -1,0 +1,12 @@
+README.md
+setup.py
+galaxygrad/__init__.py
+galaxygrad/eqx_scorenet32.eqx
+galaxygrad/eqx_scorenet64.eqx
+galaxygrad/models_eqx.py
+galaxygrad/scorenet.py
+galaxygrad.egg-info/PKG-INFO
+galaxygrad.egg-info/SOURCES.txt
+galaxygrad.egg-info/dependency_links.txt
+galaxygrad.egg-info/requires.txt
+galaxygrad.egg-info/top_level.txt
