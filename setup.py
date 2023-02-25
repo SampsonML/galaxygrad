@@ -15,7 +15,7 @@ setup(
         packages=find_packages(),
         package_data={'':['*.eqx']},
         include_package_data=True,
-        install_requires=[jax, equinox, einops,],
+        install_requires=['jax', 'equinox', 'einops'],
         
         keywords=['python', 'diffusion'],
         classifiers= [
