@@ -29,7 +29,7 @@ def single_sample_fn(model, int_beta, data_shape, dt0, t1, key):
     sol = dfx.diffeqsolve(term, solver, t1, t0, -dt0, y1, adjoint=dfx.NoAdjoint())
     return sol.ys[0]
 
-def generate_samples(n_samples=1,hi_res=True, seed=1992):
+def generateSamples(n_samples=1,hi_res=True, seed=1992):
     if hi_res:
         model = ScoreNet64
         data_shape = (1, 64, 64)

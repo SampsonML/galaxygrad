@@ -32,8 +32,6 @@ model64 = ScoreNet(
 )
 
 # load 64 res model
-#SAVE_DIR = 'stored_models'
-#fn = SAVE_DIR + '/eqx_scorenet64.eqx'
 FN = os.path.join(os.path.dirname(__file__), 'eqx_scorenet64.eqx')
 ScoreNet64 = eqx.tree_deserialise_leaves(FN, model64)
 
@@ -51,7 +49,22 @@ model32 = ScoreNet(
 )
 
 # load 32 res model
-#SAVE_DIR = 'stored_models'
-#fn = SAVE_DIR + '/eqx_scorenet32.eqx'
 FN = os.path.join(os.path.dirname(__file__), 'eqx_scorenet32.eqx')
 ScoreNet32 = eqx.tree_deserialise_leaves(FN, model32)
+
+# initialise model for 32 res
+data_shape = (1, 22, 22)
+model22 = ScoreNet(
+        data_shape,
+        patch_size,
+        hidden_size,
+        mix_patch_size,
+        mix_hidden_size,
+        num_blocks,
+        t1,
+        key=model_key,
+)
+
+# load 22 res model
+FN = os.path.join(os.path.dirname(__file__), 'eqx_scorenet22.eqx')
+ScoreNet22 = eqx.tree_deserialise_leaves(FN, model22)
