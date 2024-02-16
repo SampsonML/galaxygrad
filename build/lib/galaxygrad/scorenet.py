@@ -49,8 +49,8 @@ HSC_ScoreNet64_func = model_wrapper
 class HSC_Scorenet64:
     def __init__(self):
         self.shape = (64,64)
-    def __call__(self, x):
-        return HSC_ScoreNet64_func(x)
+    def __call__(self, x, t=0.02):
+        return HSC_ScoreNet64_func(x, t)
 HSC_ScoreNet64 = HSC_Scorenet64()
 
 # initialise model for 32 res
@@ -81,8 +81,8 @@ HSC_ScoreNet32_func = model_wrapper
 class HSC_Scorenet32:
     def __init__(self):
         self.shape = (32,32)
-    def __call__(self, x):
-        return HSC_ScoreNet32_func(x)
+    def __call__(self, x, t=0.02):
+        return HSC_ScoreNet32_func(x, t)
 HSC_ScoreNet32 = HSC_Scorenet32()
 
 # initialise model for 32 res
@@ -113,8 +113,8 @@ ZTF_ScoreNet32 = model_wrapper
 class ZTF_Scorenet32:
     def __init__(self):
         self.shape = (32,32)
-    def __call__(self, x):
-        return ZTF_ScoreNet32_func(x)
+    def __call__(self, x, t=0.02):
+        return ZTF_ScoreNet32_func(x, t)
 ZTF_ScoreNet32 = ZTF_Scorenet32()
 
 # initialise model for 64 res
@@ -145,7 +145,7 @@ ZTF_ScoreNet64 = model_wrapper
 class ZTF_Scorenet64:
     def __init__(self):
         self.shape = (64,64)
-    def __call__(self, x):
-        return ZTF_ScoreNet64_func(x)
+    def __call__(self, x, t=0.02):
+        return ZTF_ScoreNet64_func(x, t)
 ZTF_ScoreNet64 = ZTF_Scorenet64()
 
