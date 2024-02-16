@@ -1,3 +1,4 @@
 jax
 equinox
 einops
+diffrax
