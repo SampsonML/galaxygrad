@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: galaxygrad
-Version: 0.1.4
+Version: 0.1.5
 Summary: Diffusion model for galaxy generation
 Author: Matt Sampson
 Author-email: matt.sampson@princeton.edu

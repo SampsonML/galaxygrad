@@ -139,7 +139,7 @@ def model_wrapper(x, t=0.01):
     raw_grad = ZTF_64(x_, t)
     transform_grad = raw_grad * ( 1 / ( sigma * (x + 1) )) # analytic derrivitive    
     return transform_grad
-ZTF_ScoreNet64_fun = model_wrapper
+ZTF_ScoreNet64_func = model_wrapper
 
 # define a class to store shape attribute
 class ZTF_Scorenet64:
