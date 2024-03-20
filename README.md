@@ -1,5 +1,6 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![PyPi version](https://pypip.in/v/galaxygrad/badge.png)](https://crate.io/packages/galaxygrad/)
+![PyPI](https://img.shields.io/pypi/v/galaxygrad?label=pypi%20package)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/galaxygrad)
 # GalaxyGrad
 Package for s scorre-based diffusion model trained on HSC galaxies, and ZTF like simulations.
 See https://pypi.org/project/galaxygrad/0.1.5/
