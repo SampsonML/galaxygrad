@@ -1,3 +1,4 @@
+[![arXiv](https://img.shields.io/badge/arXiv-<INDEX>-<COLOR>.svg)](https://arxiv.org/abs/2401.07313)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ![PyPI](https://img.shields.io/pypi/v/galaxygrad?label=pypi%20package)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/galaxygrad)
