@@ -24,10 +24,15 @@ galaxy = np.expand_dims(galaxy, axis=0) # the prior requires 3 dimensions for ea
 gradients = prior(galaxy)
 ```
 
-For adjusting the temperature of the model the cleanest way is to instantiate a prior class and call the prior through this
+You can also directly adjust the desired temperature each time
+```python
+# load in the model you wish to use
+gradients = HSC_ScoreNet64(galaxy,t=0.05)
+```
+For adjusting the temperature of the model to a new default value (useful when running inside optimization routines) the cleanest way is to instantiate a prior class and call the prior through this
 ```python
 # define a class for temperature adjustable prior
-class TempScore(ScorePrior):
+class TempScore:
     """Temperature adjustable ScorePrior"""
     def __init__(self, model, temp=0.02):
         self.model = model
@@ -40,10 +45,4 @@ Now you may call the prior through the class with any custom temperature between
 temp = 0.02
 prior = TempScore(model=HSC_ScoreNet64, temp=temp) 
 ```
-
-Of course you can also directly state the desired temperature each time too
-```python
-# load in the model you wish to use
-gradients = HSC_ScoreNet64(galaxy,t=0.05)
-```
-This previous method tends to be cleaner when working with optimisation schemes and taking gradients of the prior (if desired)
+This method also removes any parameters that one may not like to trace.
