@@ -1,7 +1,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2401.07313-<COLOR>.svg)](https://arxiv.org/abs/2401.07313)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![PyPI](https://img.shields.io/pypi/v/galaxygrad?label=pypi%20package)](https://pypi.org/project/galaxygrad/)
-![PyPI - Downloads (https://img.shields.io/pypi/dm/galaxygrad)(https://pypistats.org/packages/galaxygrad)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/galaxygrad)(https://pypistats.org/packages/galaxygrad)
 # GalaxyGrad
 Package for a score-based diffusion model trained on HSC galaxies, ZTF like simulations, and lensed quasars.
 See https://pypi.org/project/galaxygrad/0.1.8/
