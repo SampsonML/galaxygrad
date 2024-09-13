@@ -12,3 +12,20 @@ Contains 4 generative diffusion models {HSC, ZTF}_ScoreNet32 and {HSC, ZTF}Score
 from galaxygrad import QUASAR_ScoreNet72
 prior = QUASAR_ScoreNet72
 ```
+
+For adjusting the temperature of the model the cleanest way is to instantiate a prior class and call the prior through this
+```python
+# define a class for temperature adjustable prior
+class TempScore(ScorePrior):
+    """Temperature adjustable ScorePrior"""
+    def __init__(self, model, temp=0.02):
+        self.model = model
+        self.temp = temp
+    def __call__(self, x):
+        return self.model(x, t=self.temp)
+```
+Now you may call the prior through the class with any custom temperature between 0 --> 10, though nothing above 0.1 would be reccomended.
+```python
+temp = 0.02
+prior = TempScore(model=QUASAR_ScoreNet72, temp=temp) 
+```
