@@ -43,6 +43,7 @@ class TempScore:
 Now you may call the prior through the class with any custom temperature between 0 --> 10, though nothing above 0.1 would be reccomended.
 ```python
 temp = 0.02
-prior = TempScore(model=HSC_ScoreNet64, temp=temp) 
+prior = TempScore(model=HSC_ScoreNet64, temp=temp)
+gradients = prior(galaxy)
 ```
 This method also removes any parameters that one may not like to trace.
