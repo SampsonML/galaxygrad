@@ -16,7 +16,7 @@ You can now use the pre-loaded priors on and 2D arrays the same size as the nume
 
 ```python
 # load in the model you wish to use
-from galaxygrad import HSC_ScoreNet64
+from galaxygrad import HSC_ScoreNet64 # current options are {HSC_ScoreNet32, HSC_ScoreNet64, ZTF_ScoreNet32, ZTF_ScoreNet64, QUASAR_ScoreNet72}
 prior = HSC_ScoreNet64
 
 galaxy = np.ones([64,64])
