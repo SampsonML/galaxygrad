@@ -179,3 +179,44 @@ class ZTF_Scorenet64:
 
 
 ZTF_ScoreNet64 = ZTF_Scorenet64()
+
+# quasar model
+# initialise model for 64 res
+data_shape = (1, 72, 72)
+model72 = ScoreNet(
+    data_shape,
+    patch_size,
+    hidden_size,
+    mix_patch_size,
+    mix_hidden_size,
+    num_blocks,
+    t1,
+    key=model_key,
+)
+
+
+FN = os.path.join(os.path.dirname(__file__), "eqx_quasar_lens72.eqx")
+QUASAR_72 = eqx.tree_deserialise_leaves(FN, model72)
+
+
+def model_wrapper(x, t=0.01):
+    sigma = 0.1
+    x_ = jnp.log(x + 1) / sigma
+    raw_grad = QUASAR_72(x_, t)
+    transform_grad = raw_grad * (1 / (sigma * (x + 1)))  # analytic derrivitive
+    return transform_grad
+
+
+QUASAR_72_func = model_wrapper
+
+
+# define a class to store shape attribute
+class QUASAR_ScoreNet72:
+    def __init__(self):
+        self.shape = (72, 72)
+
+    def __call__(self, x, t=0.02):
+        return QUASAR_72_func(x, t)
+
+
+QUASAR_ScoreNet72 = QUASAR_ScoreNet72()
