@@ -7,10 +7,20 @@ Package for a score-based diffusion model trained on HSC galaxies, and ZTF like 
 See https://pypi.org/project/galaxygrad/0.1.5/
 Contains 4 generative diffusion models {HSC, ZTF}_ScoreNet32 and {HSC, ZTF}ScoreNet64 for both the HSC and ZTF surveys. These are used to return the gradients of an arbitrary image with respect to a prior distribution of individual artifact free galaxy models. Current functions include {HSC, ZTF}_ScoreNet{32, 64}(image) returns gradients w,r,t the trained prior of the image. Data transformatons are handled internally so that all returned gradients are in standard observation space (i.e not log space etc).
 
+Install the package from pip
+
+```shell
+pip install galaxygrad
+```
+You can now use the pre-loaded priors on and 2D arrays the same size as the numerical value of the prior name, ie HSC_ScoreNet64 takes 64 by 64 arrays.
+
 ```python
 # load in the model you wish to use
 from galaxygrad import QUASAR_ScoreNet72
 prior = QUASAR_ScoreNet72
+
+galaxy = np.ones(64,64)
+gradients = prior(galaxy)
 ```
 
 For adjusting the temperature of the model the cleanest way is to instantiate a prior class and call the prior through this
