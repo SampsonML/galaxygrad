@@ -19,7 +19,7 @@ You can now use the pre-loaded priors on and 2D arrays the same size as the nume
 from galaxygrad import HSC_ScoreNet64
 prior = HSC_ScoreNet64
 
-galaxy = np.ones(64,64)
+galaxy = np.ones([64,64])
 gradients = prior(galaxy)
 ```
 
@@ -43,7 +43,7 @@ prior = TempScore(model=HSC_ScoreNet64, temp=temp)
 Of course you can also directly state the desired temperature each time too
 ```python
 # load in the model you wish to use
-galaxy = np.ones(64,64)
+galaxy = np.ones([64,64])
 gradients = HSC_ScoreNet64(galaxy,t=0.05)
 ```
 This previous method tends to be cleaner when working with optimisation schemes and taking gradients of the prior (if desired)
