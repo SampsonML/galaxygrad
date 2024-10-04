@@ -3,7 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/galaxygrad?label=pypi%20package)](https://pypi.org/project/galaxygrad/)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/galaxygrad)
 
-<img src="logo.png" width="600"/>
+<img src="logo.png" width="500"/>
 
 # GalaxyGrad
 Package for a score-based diffusion model trained on HSC galaxies, ZTF like simulations, and lensed quasars.
