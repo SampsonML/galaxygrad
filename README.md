@@ -45,7 +45,7 @@ gradients = prior(galaxy)
 ```
 
 ## Use with Scarlet2
-Likely you are here from your use of the scarlet2 deblending tool. The use of galaxygrad priors in this framework can be used as following
+Likely you are here from your use of the scarlet2 deblending tool (https://scarlet2.readthedocs.io/en/latest/). The use of galaxygrad priors in this framework can be used as following
 ```python
 from scarlet2.nn import ScorePrior
 prior = get_prior('hsc32')
