@@ -29,7 +29,7 @@ print(show_available_models())
 To use a model, we can use the get_prior method to download a prior, which can be stored to a specific location using the local_dir flag if desired.
 ```python
 # define a path, or leave this as None to store in .cache/huggingface dir
-path = /path/to/model/
+path = '/path/to/model/'
 prior = get_prior('hsc32', local_dir=path)
 ```
 
