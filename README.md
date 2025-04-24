@@ -6,46 +6,49 @@
 <img src="logo.png" width="500"/>
 
 # GalaxyGrad
-Package for a score-based diffusion model trained on HSC galaxies, ZTF like simulations, and lensed quasars.
-See https://pypi.org/project/galaxygrad/0.1.8/
+Package for a score-based diffusion model trained on HSC galaxies, ZTF like simulations, lensed quasars and more.
+See https://pypi.org/project/galaxygrad/0.3.0/.
+The prior models are stored in a huggingface repository at https://huggingface.co/sampsonML/galaxy-score-based-diffusion-models. Get in contact to add, or request new priors.
 Usage:
 Install the package from pip
 
 ```shell
 pip install galaxygrad
 ```
+We can now see what priors we have available
+```python
+from galaxygrad import show_available_models, get_prior
+# see the available priors
+print(show_available_models())
+```
+
+To use a model, we can use the get_prior method to download a prior, which can be stored to a specific location using the local_dir flag if desired.
+```python
+# define a path, or leave this as None to store in .cache/huggingface dir
+path = /path/to/model/
+prior = get_prior('hsc32', local_dir=path)
+```
+
+We can see information about this prior in the following ways 
+```python
+print(prior.info())
+print(f"model located at {prior.path}")
+print(f"shape of this prior is {prior.shape()}")
+```
+
 You can now use the pre-loaded priors on and 2D arrays the same size as the numerical value of the prior name, ie HSC_ScoreNet64 takes 64 by 64 arrays.
 
 ```python
-# load in the model you wish to use
-from galaxygrad import HSC_ScoreNet64 # current options are {HSC_ScoreNet32, HSC_ScoreNet64, ZTF_ScoreNet32, ZTF_ScoreNet64, QUASAR_ScoreNet72}
-prior = HSC_ScoreNet64
-
 galaxy = np.ones([64,64])
 galaxy = np.expand_dims(galaxy, axis=0) # the prior requires 3 dimensions for easier use in vmapped functions (batch processing)
 gradients = prior(galaxy)
 ```
 
-You can also directly adjust the desired temperature each time
+## Use with Scarlet2
+Likely you are here from your use of the scarlet2 deblending tool. The use of galaxygrad priors in this framework can be used as following
 ```python
-# load in the model you wish to use
-gradients = HSC_ScoreNet64(galaxy,t=0.05)
+from scarlet2.nn import ScorePrior
+prior = get_prior('hsc32')
+temp = 1e-2
+prior=ScorePrior(prior, prior.shape(), t=temp)
 ```
-For adjusting the temperature of the model to a new default value (useful when running inside optimization routines) the cleanest way is to instantiate a prior class and call the prior through this
-```python
-# define a class for temperature adjustable prior
-class TempScore:
-    """Temperature adjustable ScorePrior"""
-    def __init__(self, model, temp=0.02):
-        self.model = model
-        self.temp = temp
-    def __call__(self, x):
-        return self.model(x, t=self.temp)
-```
-Now you may call the prior through the class with any custom temperature between 0 --> 10, though nothing above 0.1 would be reccomended.
-```python
-temp = 0.02
-prior = TempScore(model=HSC_ScoreNet64, temp=temp)
-gradients = prior(galaxy)
-```
-This method also removes any parameters that one may not like to trace.
