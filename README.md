@@ -9,6 +9,10 @@
 Package for a score-based diffusion model trained on HSC galaxies, ZTF like simulations, lensed quasars and more.
 See https://pypi.org/project/galaxygrad/0.3.0/.
 The prior models are stored in a huggingface repository at https://huggingface.co/sampsonML/galaxy-score-based-diffusion-models. Get in contact to add, or request new priors.
+
+> [!WARNING]  
+> Galaxygrad has recently changed how models are stored and loaded in, please see updated guidlines.
+
 Usage:
 Install the package from pip
 
