@@ -30,7 +30,7 @@ To use a model, we can use the get_prior method to download a prior, which can b
 ```python
 # define a path, or leave this as None to store in .cache/huggingface dir
 path = '/path/to/model/'
-prior = get_prior('hsc32', local_dir=path)
+prior = get_prior('hsc64', local_dir=path)
 ```
 
 We can see information about this prior in the following ways 
