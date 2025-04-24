@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
-VERSION = "0.1.7"
+VERSION = "0.3.0"
 DESCRIPTION = "Diffusion model for galaxy generation"
-LONG_DESCRIPTION = "Contains 4 generative diffusion models ScoreNet32 and ScoreNet64 for both the HSC and ZTF surveys. These are used to return the gradients of an arbitrary image with respect to a prior distribution of individual artifact free galaxy models. Current functions include ScoreNetXX(image) returns gradients as stated. Data transformatons are now done inside the package."
+LONG_DESCRIPTION = "Contains generative score-based diffusion models for a variety of astronomy surveys including the HSC and ZTF surveys. These are used to return the gradients of an arbitrary image with respect to a prior distribution of individual artifact free galaxy models."
 
 # Setting up
 setup(
@@ -13,9 +13,7 @@ setup(
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
-    package_data={"": ["*.eqx"]},
-    include_package_data=True,
-    install_requires=["jax", "equinox", "einops", "diffrax"],
+    install_requires=["jax", "equinox", "einops", "huggingface-hub"],
     keywords=["python", "diffusion"],
     classifiers=[
         "Development Status :: 3 - Alpha",
